@@ -18,7 +18,7 @@ transformers>=4.35.0
 python-dotenv>=1.0.0
 pymupdf>=1.23.0
 Pillow>=10.0.0
-rapidocr-onnxruntime>=1.4.4
 jieba>=0.42.1
 rank-bm25>=0.2.2
-opencv-python-headless
+rapidocr-onnxruntime>=1.4.4
+opencv-python-headless>=4.8.1.78
