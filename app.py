@@ -405,7 +405,7 @@ def render_top_header(title):
     with col1:
         st.markdown(f"<div class='top-header' style='border-bottom:none;padding-left:0;'><h2>{title}</h2></div>", unsafe_allow_html=True)
     with col2:
-        st.text_input("", placeholder="🔍 搜索问题或文件...", label_visibility="collapsed", key=f"search_{title}")
+        st.text_input("搜索", placeholder="🔍 搜索问题或文件...", label_visibility="collapsed", key=f"search_{title}")
     with col3:
         st.markdown("<div style='text-align:right;font-size:1.25rem;'>🔔</div>", unsafe_allow_html=True)
 
@@ -698,7 +698,7 @@ elif st.session_state.current_page == "知识库管理":
             row_cols = st.columns([0.5, 4, 2, 1.5, 1.5])
             with row_cols[0]:
                 default_val = st.session_state.get(f"kb_chk_{current_kb_type}_{idx}", False)
-                checked = st.checkbox("", key=f"kb_chk_{current_kb_type}_{idx}", label_visibility="collapsed", value=default_val)
+                checked = st.checkbox("选择", key=f"kb_chk_{current_kb_type}_{idx}", label_visibility="collapsed", value=default_val)
                 if checked:
                     selected_files.append(finfo["name"])
             with row_cols[1]:
@@ -811,7 +811,7 @@ elif st.session_state.current_page == "知识库管理":
 elif st.session_state.current_page == "常见问题":
     render_top_header("常见问题")
 
-    search_keyword = st.text_input("", placeholder="🔍 输入关键词搜索常见问题...", label_visibility="collapsed", key="faq_search").strip()
+    search_keyword = st.text_input("搜索", placeholder="🔍 输入关键词搜索常见问题...", label_visibility="collapsed", key="faq_search").strip()
 
     categories = ["全部", "户籍办理", "医保社保", "公积金", "企业开办", "不动产"]
     if "faq_current_cat" not in st.session_state:
@@ -1058,7 +1058,7 @@ elif st.session_state.current_page == "智能问答":
     input_container = st.container()
     with input_container:
         with st.form(key="qa_form", clear_on_submit=True):
-            question = st.text_area("", height=80, placeholder="请输入您的问题，例如：如何重置密码？", label_visibility="collapsed", key="qa_input")
+            question = st.text_area("问题输入", height=80, placeholder="请输入您的问题，例如：如何重置密码？", label_visibility="collapsed", key="qa_input")
             btn_col1, btn_col2, btn_col3 = st.columns([3, 1, 3])
             with btn_col2:
                 submit_btn = st.form_submit_button("立即提问", type="primary", use_container_width=True)
